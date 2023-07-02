@@ -14,7 +14,7 @@ face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence = 0.15, min_tracking_
 mp_drawing = mp.solutions.drawing_utils
 drawing_spec = mp_drawing.DrawingSpec(thickness = 1, circle_radius = 1)
 
-expression_detector = ort.InferenceSession("./emotion_detector.onnx", providers = ["TensorrtExecutionProvider"])
+expression_detector = ort.InferenceSession("./emotion_detector.onnx", providers = ["CUDAExecutionProvider"])
 idx_to_class={0: 'Anger', 1: 'Disgust', 2: 'Fear', 3: 'Happiness', 4: 'Neutral', 5: 'Sadness', 6: 'Surprise'}
 
 drowsiness_detector = YOLO("./SDV_Drowsiness.pt")
